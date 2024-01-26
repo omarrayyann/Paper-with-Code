@@ -13,9 +13,9 @@ def evaluate(model,data_loader,device):
       outputs = model(inputs)
       total += len(inputs)
       correct += (torch.max(outputs,1)[1] == labels).sum().item()
-    accuracy = correct/total
-    print(f'Accuracy: {accuracy}%')
-  return correct/total
+    error = (total-correct)/total
+    print(f'Error: {error}%')
+  return error
 
 def train(model, epochs, train_loader, test_loader, criterion, optimizer, RESULTS_PATH, MODEL_PATH):
   device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
