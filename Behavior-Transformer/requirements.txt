@@ -1,0 +1,8 @@
+gym==0.21.0
+torch
+scikit-learn
+gin-config
+pybullet
+tqdm
+matplotlib
+numpy
